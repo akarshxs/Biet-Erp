@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 38 36% 96%;
+  --foreground: 215 42% 16%;
+  --border: 35 23% 87%;
+  --card: 40 33% 99%;
+  --card-foreground: 215 42% 16%;
+  --card-border: 35 23% 87%;
+  --popover: 40 33% 99%;
+  --popover-foreground: 215 42% 16%;
+  --popover-border: 35 23% 87%;
+  --primary: 18 74% 46%;
+  --primary-foreground: 40 33% 99%;
+  --secondary: 174 32% 91%;
+  --secondary-foreground: 178 47% 23%;
+  --muted: 35 25% 92%;
+  --muted-foreground: 213 15% 44%;
+  --accent: 174 48% 32%;
+  --accent-foreground: 40 33% 99%;
+  --destructive: 3 64% 48%;
+  --destructive-foreground: 40 33% 99%;
+  --input: 35 23% 82%;
+  --ring: 18 74% 46%;
+  --app-font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: 'Space Mono', ui-monospace, monospace;
+  --radius: 0.7rem;
+  --tracking-normal: -0.012em;
+}
+
+.dark {
+  --background: 215 42% 10%;
+  --foreground: 40 33% 96%;
+  --border: 215 25% 22%;
+  --card: 215 35% 14%;
+  --card-foreground: 40 33% 96%;
+  --card-border: 215 25% 22%;
+  --popover: 215 35% 14%;
+  --popover-foreground: 40 33% 96%;
+  --popover-border: 215 25% 22%;
+  --primary: 18 80% 57%;
+  --primary-foreground: 215 42% 10%;
+  --secondary: 178 30% 22%;
+  --secondary-foreground: 174 42% 88%;
+  --muted: 215 25% 20%;
+  --muted-foreground: 214 17% 68%;
+  --accent: 174 50% 42%;
+  --accent-foreground: 215 42% 10%;
+  --input: 215 25% 25%;
+  --ring: 18 80% 57%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: var(--app-font-sans);
+    letter-spacing: var(--tracking-normal);
+    background-image: radial-gradient(circle at 15% 0%, hsl(28 78% 93% / .7), transparent 32rem);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--app-font-sans);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* The existing screens use slate utility names. Re-map them to the ERP palette
+     so every module shares the same visual language without page-by-page drift. */
+  .bg-slate-950 { background-color: hsl(39 33% 98%); }
+  .bg-slate-900 { background-color: hsl(40 33% 99%); }
+  .bg-slate-800 { background-color: hsl(35 25% 92%); }
+  .bg-slate-950\/50 { background-color: hsl(39 33% 98% / .72); }
+  .bg-slate-800\/50 { background-color: hsl(35 25% 92% / .72); }
+  .bg-slate-900\/80 { background-color: hsl(40 33% 99% / .86); }
+  .text-white { color: hsl(215 42% 16%); }
+  .text-slate-100 { color: hsl(215 38% 20%); }
+  .text-slate-300 { color: hsl(213 25% 31%); }
+  .text-slate-400 { color: hsl(213 15% 44%); }
+  .text-slate-500 { color: hsl(210 12% 52%); }
+  .text-slate-600 { color: hsl(210 12% 60%); }
+  .border-slate-800, .border-slate-800\/50, .border-slate-800\/60 { border-color: hsl(35 23% 87%); }
+  .border-slate-700, .border-slate-700\/50 { border-color: hsl(35 23% 81%); }
+  .hover\:bg-slate-800:hover { background-color: hsl(35 25% 92%); }
+  .hover\:bg-slate-800\/50:hover { background-color: hsl(35 25% 92% / .8); }
+  .hover\:text-white:hover { color: hsl(215 42% 16%); }
+  .text-indigo-400, .text-indigo-500 { color: hsl(18 74% 46%); }
+  .bg-indigo-500, .bg-indigo-600 { background-color: hsl(18 74% 46%); }
+  .bg-indigo-500\/10, .bg-indigo-500\/20 { background-color: hsl(18 74% 46% / .1); }
+  .border-indigo-500\/30 { border-color: hsl(18 74% 46% / .3); }
+  .hover\:bg-indigo-700:hover { background-color: hsl(18 74% 39%); }
+  .bg-emerald-500 { background-color: hsl(174 48% 32%); }
+  .text-emerald-400 { color: hsl(174 48% 32%); }
+  .bg-emerald-500\/10 { background-color: hsl(174 48% 32% / .1); }
+  .shadow-black\/50 { --tw-shadow-color: hsl(215 42% 16% / .12); }
+  .font-mono { font-family: var(--app-font-mono); }
+  .erp-mono { font-family: var(--app-font-mono); letter-spacing: .02em; }
+  .erp-panel { box-shadow: 0 1px 2px hsl(215 42% 16% / .04), 0 14px 32px hsl(215 42% 16% / .035); }
+  .erp-focus { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .erp-focus:hover { transform: translateY(-2px); box-shadow: 0 12px 26px hsl(215 42% 16% / .08); border-color: hsl(18 74% 46% / .35); }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.dark .bg-slate-950 { background-color: hsl(215 42% 9%); }
+.dark .bg-slate-900 { background-color: hsl(215 35% 14%); }
+.dark .bg-slate-800 { background-color: hsl(215 25% 20%); }
+.dark .text-white { color: hsl(40 33% 96%); }
+.dark .text-slate-100 { color: hsl(40 30% 92%); }
+.dark .text-slate-300 { color: hsl(214 20% 78%); }
+.dark .text-slate-400 { color: hsl(214 17% 68%); }
+.dark .text-slate-500 { color: hsl(214 13% 56%); }
+.dark .border-slate-800, .dark .border-slate-800\/50, .dark .border-slate-800\/60 { border-color: hsl(215 25% 22%); }

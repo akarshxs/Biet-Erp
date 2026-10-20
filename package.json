@@ -1,0 +1,21 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build:frontend": "pnpm --filter @workspace/college-erp build",
+    "build:backend": "pnpm --filter @workspace/api-server build",
+    "build": "pnpm --filter @workspace/college-erp build && pnpm --filter @workspace/api-server build",
+    "start": "node artifacts/api-server/dist/index.mjs",
+    "start:local": "node scripts/start-local.mjs"
+  },
+  "private": true,
+  "dependencies": {
+    "@replit/connectors-sdk": "^0.4.1"
+  },
+  "devDependencies": {
+    "@esbuild/win32-x64": "0.27.3",
+    "prettier": "^3.9.5",
+    "typescript": "~5.9.3"
+  }
+}
