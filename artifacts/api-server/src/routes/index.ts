@@ -1,0 +1,46 @@
+import { Router, type IRouter } from "express";
+import healthRouter from "./health.js";
+import authRouter from "./auth.js";
+import usersRouter from "./users.js";
+import departmentsRouter from "./departments.js";
+import subjectsRouter from "./subjects.js";
+import attendanceRouter from "./attendance.js";
+import assignmentsRouter from "./assignments.js";
+import resultsRouter from "./results.js";
+import feesRouter from "./fees.js";
+import noticesRouter from "./notices.js";
+import eventsRouter from "./events.js";
+import placementsRouter from "./placements.js";
+import timetableRouter from "./timetable.js";
+import notesRouter from "./notes.js";
+import libraryRouter from "./library.js";
+import messagesRouter from "./messages.js";
+import analyticsRouter from "./analytics.js";
+import logsRouter from "./logs.js";
+import aiRouter from "./ai.js";
+import recordsRouter from "./records.js";
+
+const router: IRouter = Router();
+
+router.use(healthRouter);
+router.use(authRouter);
+router.use(usersRouter);
+router.use(departmentsRouter);
+router.use(subjectsRouter);
+router.use(attendanceRouter);
+router.use(assignmentsRouter);
+router.use(resultsRouter);
+router.use(feesRouter);
+router.use(noticesRouter);
+router.use(eventsRouter);
+router.use(placementsRouter);
+router.use(timetableRouter);
+router.use(notesRouter);
+router.use(libraryRouter);
+router.use(messagesRouter);
+router.use(analyticsRouter);
+router.use(logsRouter);
+router.use(aiRouter);
+router.use(recordsRouter);
+
+export default router;
